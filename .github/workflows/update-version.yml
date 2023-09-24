@@ -31,4 +31,4 @@ jobs:
           
           git checkout -b main
           git merge origin/update-version
-          git push origin main
+          git push -f origin main
