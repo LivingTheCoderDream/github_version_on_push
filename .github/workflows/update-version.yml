@@ -27,7 +27,7 @@ jobs:
           git commit -m "Update version with timestamp"
           
           # Pull the latest changes from the remote branch
-          git pull origin update-version --ff-only
+          git pull origin update-version
           
           # Push changes to the new branch
           git push -f origin update-version
