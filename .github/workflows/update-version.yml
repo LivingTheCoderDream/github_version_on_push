@@ -18,7 +18,7 @@ jobs:
 
       - name: Update Version
         run: |
-          TIMESTAMP=$(TZ="Asia/Kolkata" date -u +"%Y-%m-%dT%H:%M:%S%:z")
+          TIMESTAMP=$(TZ="Asia/Kolkata" date -u +"%Y-%m-%dT%H:%M:%S%:z" | sed 's/+00:00/+05:30/')
           echo "const version = '$TIMESTAMP';" > version.js
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
