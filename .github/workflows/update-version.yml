@@ -30,4 +30,5 @@ jobs:
           git pull origin update-version --ff-only
           
           # Push changes to the new branch
-          git push origin update-version
+          git push -f origin update-version
+
