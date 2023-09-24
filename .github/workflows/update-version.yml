@@ -28,3 +28,7 @@ jobs:
           
           # Push changes to the new branch
           git push -f origin update-version
+          
+          git checkout main
+          git merge origin/update-version
+          git push origin main
