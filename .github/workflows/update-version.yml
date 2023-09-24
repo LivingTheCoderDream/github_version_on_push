@@ -3,26 +3,26 @@ name: Update Version Timestamp
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Update Version
-      run: |
-        TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-        echo "const version = '$TIMESTAMP';" > version.js
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add version.js
-        git commit -m "Update version with timestamp"
-        git push
-
+      - name: Update Version
+        run: |
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          echo "const version = '$TIMESTAMP';" > version.js
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git checkout -b update-version # Create a new branch
+          git add version.js
+          git commit -m "Update version with timestamp"
+          git push origin update-version # Push changes to the new branch
